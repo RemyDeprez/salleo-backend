@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
@@ -26,6 +27,7 @@ public class AuthController {
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
+    @SuppressWarnings("unused")
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody UserDto dto) {
         // Ensure password is provided and meets minimum requirements for registration
@@ -37,6 +39,7 @@ public class AuthController {
         return ResponseEntity.ok(created);
     }
 
+    @SuppressWarnings("unused")
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
         var maybe = userRepository.findByEmailIgnoreCase(request.getEmail());
