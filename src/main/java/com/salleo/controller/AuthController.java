@@ -46,7 +46,7 @@ public class AuthController {
         if (maybe.isEmpty()) maybe = userRepository.findByUsername(request.getEmail());
         User user = maybe.orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-        if (!passwordEncoder.matches(request.getHashedPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(request.getPasswordHash(), user.getPassword())) {
             return ResponseEntity.status(401).body("Invalid credentials");
         }
 

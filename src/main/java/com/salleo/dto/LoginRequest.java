@@ -13,6 +13,6 @@ public class LoginRequest {
     private String email;
 
     @NotBlank
-    private String hashedPassword;
+    private String passwordHash;
 }
 
